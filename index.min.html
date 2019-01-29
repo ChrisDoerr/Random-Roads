@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Random Roads</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="./css/src/RR.css" />
+  </head>
+  <body>
+
+    <div id="UI">
+      <h1>Random Roads</h1>
+      <div id="PlayerLevel" class="gameStateMeta">Level: <span id="PlayerLevelValue">1</span></div>
+      <div id="PlayerLives" class="gameStateMeta">Lives: <span id="PlayerLivesValue">6</span></div>
+    </div>
+
+    <div id="CountDown" class="hide">0</div>
+
+    <a id="BtnLocalhost" class="hide" href="http://webtmp/2DRandomRoads/index.html">http://webtmp/2DRandomRoads/index.html</a>
+
+    <div id="MessageBox">
+      <div id="MessageBox-TopBar" class="group">
+        <div id="MessageBox-TopBar-Title">Random Roads: Game Rules</div>
+        <!--<div id="MessageBox-TopBar-BtnClose">&times;</div>-->
+      </div>
+      <div id="MessageBox-Content">
+        <p>You <strong>start at the top left</strong> position and have to <strong>drive</strong> your vehicle <strong>to the exit</strong>, which is always located <strong>at the bottom right</strong> of the map.</p>
+        <p>The vehicle will drive on its own but you have to stear, using the <strong>W, A, S, D keys</strong> on your keyboard.</p>
+        <p>When your vehicle hits a wall you die and (if you have enought lives left) have to replay the current level.</p>
+        <p>When your vehicle exits a map you will level-up and become faster and faster.</p>
+        <p>Since the maps are generated randomly it might happen that your vehicle or the exit is walled in, leaving you no other choice than to die. To compansate for that inconvinience, you have 7 lives for each level. Meaning, each time you level up, your number of lives will be reset!</p>
+        <p>
+          <button id="BtnStartTheGame">Start The Game</button>
+        </p>
+      </div>
+    </div>
+
+
+    <div id="Map">
+      <canvas id="Map-Floor"></canvas>
+      <canvas id="Map-Player"></canvas>
+    </div>
+    
+    <div id="Footer">&copy; 2018 <a href="https://twitter.com/3LpC" target="_blank">Christian Doerr</a></div>
+
+    <script src="./js/RR.comp.js"></script>
+    <script>
+
+RR.init({
+  sprites : {
+    "tiles" : {
+      "image" : "./images/spritesheetTilesGrey.png",
+      "data"  : spritesheetTilesDefault
+    },
+    "vehicle" : {
+      "image" : "./images/spritesheetVehicleDefault.png",
+      "data"  : spritesheetVehicleDefault
+    }
+  },
+  map : {
+    rows        : 8,
+    cols        : 8,
+    floorColor  : "#c0c0c0"
+  }
+});
+
+    </script>
+  </body>
+</html>
